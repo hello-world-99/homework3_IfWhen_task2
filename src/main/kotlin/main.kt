@@ -15,8 +15,8 @@ fun transaction(type: String,sum: Double,pay: Double): Double {
 
     return when(type){
         "Mastercard","Maestro"->if (sum+pay<75000) sum+pay else sum+(pay/100*100.6)+20
-        "Visa","Мир"->if (sum+pay<75000) sum+pay else sum+pay*100.6+20
-        "VK Pay"->if (sum+pay<75000) sum+pay else sum+pay*100.6+20
+        "Visa","Мир"->if (pay>35) sum+pay*100.75 else  0.0
+        "VK Pay"->sum+pay
         else -> 0.0
     }
 
